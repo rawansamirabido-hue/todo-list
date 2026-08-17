@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graduation Project</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding-top: 50px; }
+        .container { background: white; width: 350px; margin: auto; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input { padding: 10px; width: 70%; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        ul { list-style: none; padding: 0; margin-top: 20px; }
+        li { background: #eee; padding: 10px; margin-bottom: 5px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" placeholder="Enter a new task...">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskText = taskInput.value;
+            if (taskText === "") { alert("Please write a task first!"); return; }
+            var li = document.createElement("li");
+            li.innerHTML = taskText + ' <button onclick="this.parentElement.remove()">Delete</button>';
+            document.getElementById("taskList").appendChild(li);
+            taskInput.value = "";
+        }
+    </script>
+</body>
+</html>
